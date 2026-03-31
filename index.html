@@ -26,6 +26,7 @@ body {
   width: 2px;
   height: 2px;
   background: white;
+  opacity: 0.8;
   animation: fall 10s linear infinite;
 }
 
@@ -34,7 +35,7 @@ body {
   to { transform: translateY(100vh); }
 }
 
-/* ⭐ centro */
+/* ⭐ estrella central */
 .estrella {
   position: absolute;
   top: 20%;
@@ -56,7 +57,9 @@ body {
   flex-direction: column;
 }
 
-.hidden { display: none; }
+.hidden {
+  display: none;
+}
 
 /* botones */
 button {
@@ -78,7 +81,7 @@ button {
   text-align: center;
 }
 
-/* letra interactiva */
+/* palabras clickeables */
 .clickable {
   color: #ffd54f;
   cursor: pointer;
@@ -92,6 +95,7 @@ button {
   opacity: 0;
   transition: 0.5s;
 }
+
 .show {
   opacity: 1;
 }
@@ -100,7 +104,7 @@ button {
 
 <body>
 
-<!-- música -->
+<!-- 🎶 música -->
 <audio id="musica" loop>
   <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_6b8a3d8d1d.mp3?filename=romantic-piano-110624.mp3">
 </audio>
@@ -130,7 +134,7 @@ button {
       se siente natural, como esas cosas<br>
       tipo <span class="clickable" onclick="mostrar('s1')">Serendipity</span> 💜<br><br>
 
-      Y no sé… contigo todo fluye mejor.<br>
+      Y no sé… contigo todo fluye mejor.
     </p>
 
     <div id="s1" class="secreto">
@@ -158,9 +162,9 @@ button {
 </div>
 
 <script>
-// estrellas
+// 🌌 crear estrellas
 const stars = document.getElementById("stars");
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 120; i++) {
   let s = document.createElement("div");
   s.className = "star";
   s.style.left = Math.random()*100 + "vw";
