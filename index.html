@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carta 💜</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #2b0a3d, #4b0082, #000);
+  overflow: hidden;
+  color: white;
+}
+
+/* 🌹 Fondo */
+.roses {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.rose {
+  position: absolute;
+  font-size: 24px;
+  animation: float 10s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh); }
+  100% { transform: translateY(-10vh); }
+}
+
+/* Pantallas */
+.screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s;
+  z-index: 2;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Botones */
+button {
+  background: linear-gradient(45deg, #a64bf4, #ff4b8b);
+  border: none;
+  padding: 12px 25px;
+  margin: 10px;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+/* Carta */
+.carta {
+  max-width: 500px;
+  background: rgba(0,0,0,0.8);
+  padding: 25px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  box-shadow: 0 0 30px rgba(180,100,255,0.5);
+}
+
+.glow {
+  color: #d4a5ff;
+  text-shadow: 0 0 10px #d4a5ff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="roses" id="roses"></div>
+
+<!-- Pantalla 1 -->
+<div class="screen" id="inicio">
+  <button onclick="mostrarConfirmacion()">💜 Abrir carta</button>
+</div>
+
+<!-- Pantalla 2 -->
+<div class="screen hidden" id="confirmacion">
+  <h2>¿Estás segura que quieres abrirla?</h2>
+  <button onclick="abrirCarta1()">💜 Sí… como Serendipity</button>
+  <button onclick="abrirCarta2()">✨ Tal vez… Magic Shop</button>
+</div>
+
+<!-- Carta 1 -->
+<div class="screen hidden" id="carta1">
+  <div class="carta">
+    <p>
+      Hola,<br><br>
+
+      Desde que llegaste, todo cambió… como si la vida tuviera su propio <span class="glow">Serendipity</span>.<br><br>
+
+      No sé cuándo empezó, pero ahora estás en mis pensamientos más de lo que esperaba.<br><br>
+
+      Me haces sentir tranquilo, como si existiera un lugar donde puedo ser yo…<br>
+      algo así como un <span class="glow">Magic Shop</span>.<br><br>
+
+      Y aunque no todo sea perfecto… contigo todo se siente mejor.<br><br>
+
+      Con cariño 💜
+    </p>
+  </div>
+</div>
+
+<!-- Carta 2 -->
+<div class="screen hidden" id="carta2">
+  <div class="carta">
+    <p>
+      Hola,<br><br>
+
+      No sé cómo explicarlo bien, pero contigo todo brilla diferente…<br>
+      como si incluso los días grises tuvieran algo de <span class="glow">Dynamite</span>.<br><br>
+
+      Me gusta hablar contigo, pensar en ti…<br>
+      eres como esa canción que nunca dejo de escuchar.<br><br>
+
+      Tal vez no soy perfecto, pero lo que siento es real.<br><br>
+
+      Y si esto es una casualidad… entonces es una muy bonita.<br><br>
+
+      💜
+    </p>
+  </div>
+</div>
+
+<script>
+// 🌹 Crear rosas
+const rosesContainer = document.getElementById("roses");
+for (let i = 0; i < 25; i++) {
+  let rose = document.createElement("div");
+  rose.classList.add("rose");
+  rose.innerHTML = "🌹";
+  rose.style.left = Math.random() * 100 + "vw";
+  rose.style.animationDuration = (5 + Math.random() * 5) + "s";
+  rosesContainer.appendChild(rose);
+}
+
+// Pantallas
+function mostrarConfirmacion() {
+  document.getElementById("inicio").classList.add("hidden");
+  document.getElementById("confirmacion").classList.remove("hidden");
+}
+
+function abrirCarta1() {
+  document.getElementById("confirmacion").classList.add("hidden");
+  document.getElementById("carta1").classList.remove("hidden");
+}
+
+function abrirCarta2() {
+  document.getElementById("confirmacion").classList.add("hidden");
+  document.getElementById("carta2").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
